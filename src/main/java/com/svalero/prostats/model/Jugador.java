@@ -13,7 +13,7 @@ public class Jugador {
     private int id;
     private String nickname;
     private int edad;
-    private double kda_ratio;
+    private double kdaRatio;
     private LocalDate fechaFinContrato;
     private boolean esTitular;
     private int idEquipo;
