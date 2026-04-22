@@ -68,7 +68,7 @@
             <hr class="my-5">
 
             <div class="d-flex justify-content-between">
-              <a href="listado-equipos" class="btn btn-outline-secondary px-4">
+              <a href="list-equipos" class="btn btn-outline-secondary px-4">
                 <i class="bi bi-x-circle me-2"></i>Cancelar
               </a>
               <button type="submit" class="btn btn-primary btn-lg px-5 shadow">
