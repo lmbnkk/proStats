@@ -16,5 +16,4 @@ public class Torneo {
     private double premio;
     private LocalDate fechaEvento;
     private boolean esPresencial;
-    private int idGanador;
 }
