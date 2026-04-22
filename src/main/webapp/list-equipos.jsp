@@ -11,7 +11,7 @@
         </div>
 
         <% if (user != null && user.isEsAdmin()) { %>
-        <a href="add-equipo.jsp" class="btn btn-primary btn-lg shadow">
+        <a href="add-equipo" class="btn btn-primary btn-lg shadow">
             <i class="bi bi-plus-circle me-2"></i>Registrar Equipo
         </a>
         <% } %>

@@ -29,7 +29,7 @@ public class AddEquipo extends HttpServlet {
 
         // validación
         if (nombre == null || nombre.trim().isEmpty() || Integer.parseInt(rankingStr) < 0) {
-            response.sendRedirect("add-equipo.jsp?error=validacion");
+            response.sendRedirect("add-equipo?error=validacion");
             return;
         }
 
@@ -57,7 +57,7 @@ public class AddEquipo extends HttpServlet {
             response.sendRedirect("index.jsp?success=1");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("add-equipo.jsp?error=db");
+            response.sendRedirect("add-equipo.jsp?error=1");
         }
     }
 }
