@@ -17,6 +17,34 @@
         <% } %>
     </div>
 
+    <!--- BUSCADOR --->
+    <section class="card shadow-sm border-0 mb-5">
+        <div class="card-body p-4">
+            <form action="list-equipos" method="get" class="row g-3 align-items-end">
+                <div class="col-md-5">
+                    <label class="form-label fw-bold small text-uppercase text-muted">Nombre del Equipo</label>
+                    <input type="text" name="search" class="form-control" placeholder="Ej: G2 Esports" value="${param.search}">
+                </div>
+
+                <div class="col-md-5">
+                    <label class="form-label fw-bold small text-uppercase text-muted">Categoría</label>
+                    <select name="profesional" class="form-select">
+                        <option value="-1">Todas las categorías</option>
+                        <option value="1" ${param.profesional == '1' ? 'selected' : ''}>Profesional</option>
+                        <option value="0" ${param.profesional == '0' ? 'selected' : ''}>Amateur</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-dark w-100 fw-bold">
+                        <i class="bi bi-filter me-2"></i>Filtrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!--- FIN BUSCADOR --->
+
     <div class="row g-4">
         <c:forEach var="equipo" items="${equipos}">
             <div class="col-md-6 col-lg-4">

@@ -18,9 +18,18 @@ public class ListTorneo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // para la búsqueda
+        String search1 = request.getParameter("search");
+        String search2Str = request.getParameter("presencial");
+
+        if (search1 == null ) search1 = "";
+        int presencial = -1;
+        if (search2Str != null && !search2Str.isEmpty()) {
+            presencial = Integer.parseInt(search2Str);
+        }
         // llamada al dao
         TorneoDao torneoDao = Database.getJdbi().onDemand(TorneoDao.class);
-        List<Torneo> listaTorneos = torneoDao.getTorneos();
+        List<Torneo> listaTorneos = torneoDao.searchTorneos("%" + search1 + "%", presencial, presencial);
 
         // se coge la lista
         request.setAttribute("torneos", listaTorneos);

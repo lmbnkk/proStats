@@ -17,9 +17,19 @@ public class ListEquipo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // para la búsqueda
+        String search1 = request.getParameter("search");
+        String search2Str = request.getParameter("profesional");
+
+        if (search1 == null ) search1 = "";
+        int profesional = -1;
+        if (search2Str != null && !search2Str.isEmpty()) {
+            profesional = Integer.parseInt(search2Str);
+        }
+
         // llamada al dao
         EquipoDao equipoDao = Database.getJdbi().onDemand(EquipoDao.class);
-        List<Equipo> listaEquipos = equipoDao.getEquipos();
+        List<Equipo> listaEquipos = equipoDao.searchEquipos("%" + search1 + "%", profesional, profesional);
 
         // se coge la lista
         request.setAttribute("equipos", listaEquipos);
