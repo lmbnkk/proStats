@@ -1,5 +1,6 @@
 package com.svalero.prostats.dao;
 
+import com.svalero.prostats.model.Equipo;
 import com.svalero.prostats.model.Torneo;
 import org.jdbi.v3.sqlobject.config.RegisterRowMapper;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
@@ -29,4 +30,7 @@ public interface TorneoDao {
     @SqlUpdate("DELETE FROM torneos WHERE id = ?")
     void deleteTorneo(int id);
 
+    // Búsqueda
+    @SqlQuery("SELECT * FROM torneos WHERE nombre_evento LIKE ? AND (es_presencial = ? OR ? = -1)")
+    List<Torneo> searchTorneos(String nombre, int esPresencial, int comprobacion);
 }

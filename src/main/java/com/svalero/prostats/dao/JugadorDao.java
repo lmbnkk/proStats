@@ -28,4 +28,8 @@ public interface JugadorDao {
     // D
     @SqlUpdate("DELETE FROM jugadores WHERE id = ?")
     void deleteJugador(int id);
+
+    // Búsqueda
+    @SqlQuery("SELECT * FROM jugadores WHERE nickname LIKE ? AND (id_equipo = ? OR ? = 0)")
+    List<Jugador> searchJugadores(String nickname, int id_equipo, int comprobacion);
 }
