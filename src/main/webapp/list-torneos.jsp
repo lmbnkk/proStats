@@ -11,7 +11,7 @@
         </div>
 
         <% if (user != null && user.isEsAdmin()) { %>
-        <a href="add-torneo.jsp" class="btn btn-primary btn-lg shadow">
+        <a href="add-torneo" class="btn btn-primary btn-lg shadow">
             <i class="bi bi-plus-circle me-2"></i>Registrar Torneo
         </a>
         <% } %>
