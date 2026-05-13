@@ -57,7 +57,12 @@ public class AddEquipo extends HttpServlet {
             response.sendRedirect("index.jsp?success=1");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("add-equipo.jsp?error=1");
+            response.sendRedirect("add-equipo?error=1");
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("add-equipo.jsp").forward(request, response);
     }
 }

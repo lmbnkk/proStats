@@ -41,9 +41,15 @@ public class AddTorneo extends HttpServlet {
 
             response.sendRedirect("list-torneos?success=1");
 
-        } catch  (Exception e) {
-            response.sendRedirect("add-torneo?error=1");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("add-torneo.jsp?error=1");
         }
 
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("add-torneo.jsp").forward(request, response);
     }
 }
